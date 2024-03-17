@@ -1,0 +1,67 @@
+.task{
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    background-color: rgb(107, 183, 255);
+    border: 2px solid white;
+    border-radius: 10px;
+    height: 40px;
+}
+
+.task .item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px auto;
+    width: 400px;
+    color: black;
+}
+
+.task .item2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px auto;
+    width: 360px;
+    color: black;
+    background-color: white;
+    border-radius: 5px;
+    margin-right: 30px;
+}
+
+.task button{
+    background-color: transparent;
+}
+
+.task .symbol{
+    margin: 5px 5px;
+    cursor: default;
+}  
+
+.taskCompleted{
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    background-color: lightgreen;
+    border: 2px solid white;
+    border-radius: 10px;
+    height: 30px;
+}
+
+.taskCompleted .item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px auto;
+    width: 400px;
+    color: black;
+}
+
+.taskCompleted button{
+    background-color: transparent;
+}
+
+.taskCompleted .symbol{
+    margin: 0px 5px;
+    cursor: default;
+}
