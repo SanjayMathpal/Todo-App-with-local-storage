@@ -13,7 +13,7 @@ export const AddComponent = () => {
             return
         }
         let id = Date.now()
-        todoData.setData([{id: id, todo: todo, completed: false},...todoData.data])
+        todoData.setData([{id: id, todo: todo, completed: false, isUpdating: false},...todoData.data])
         setTodo("");
     }
 

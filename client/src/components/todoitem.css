@@ -1,7 +1,7 @@
 .task{
     display: flex;
     flex-direction: row;
-    margin: 10px;
+    margin: 15px;
     background-color: rgb(107, 183, 255);
     border: 2px solid white;
     border-radius: 10px;
@@ -41,11 +41,11 @@
 .taskCompleted{
     display: flex;
     flex-direction: row;
-    margin: 10px;
+    margin: 15px;
     background-color: lightgreen;
     border: 2px solid white;
     border-radius: 10px;
-    height: 30px;
+    height: 40px;
 }
 
 .taskCompleted .item{
@@ -62,6 +62,10 @@
 }
 
 .taskCompleted .symbol{
-    margin: 0px 5px;
+    margin: 5px 5px;
     cursor: default;
+}
+
+.empty{
+    margin: 16px;
 }

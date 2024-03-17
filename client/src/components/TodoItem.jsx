@@ -29,6 +29,17 @@ export const TodoItem = () => {
         setIsTodoEditable(null);
     };
 
+    const updateState = (id) => {
+        setIsTodoEditable(id);
+
+        todoData.setData((prev) => prev.map((prevTodo) => prevTodo.id === id ? { ...prevTodo, isUpdating: true } : prevTodo))
+    }
+
+    const updateDone = (id,editedTodoText) => {
+        handleUpdate(id, editedTodoText)
+        todoData.setData((prev) => prev.map((prevTodo) => prevTodo.id === id ? { ...prevTodo, isUpdating: false } : prevTodo))
+    }
+
     const handleToggle = (id) => {
         todoData.setData((prev) => prev.map((prevTodo) => prevTodo.id === id ? { ...prevTodo, completed: !prevTodo.completed } : prevTodo))
     }
@@ -38,11 +49,17 @@ export const TodoItem = () => {
             {
                 todoData?.data?.map((i) => (
                     <div key={i.id} className={`${i.completed === true ? 'taskCompleted' : 'task'}`}>
+                        {
+                            i.isUpdating ? <input
+                            type="checkbox"
+                            disabled={true}
+                        /> :
                         <input
                             type="checkbox"
                             checked={i.completed}
                             onChange={() => handleToggle(i.id)}
                         />
+                        }
                         {
                             isTodoEditable == i.id ?
                                 (<>
@@ -60,10 +77,10 @@ export const TodoItem = () => {
                                 </>
                         }
                         {
-                            i.completed ? <>
-                            </> :
-                                isTodoEditable == i.id ? <p className='symbol' onClick={() => handleUpdate(i.id, editedTodoText)}>📁</p> :
-                                    <p className='symbol' onClick={(e) => setIsTodoEditable(i.id)}>📝</p>
+                            i.completed ? <div className='empty'>
+                            </div> :
+                                isTodoEditable == i.id ? <p className='symbol' onClick={() => updateDone(i.id,editedTodoText)}>📁</p> :
+                                    <p className='symbol' onClick={(e) => updateState(i.id)}>📝</p>
                         }
                         <p className='symbol' onClick={(e) => handleDelete(i.id)}>❌</p>
                     </div>
